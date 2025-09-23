@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KingdomGames - Empowering the Knowledge of the Kingdom</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #1a1a1a;
+        color: white;
+        line-height: 1.6;
+      }
+
+      /* Header Styles */
+      .header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(26, 26, 26, 0.95);
+        backdrop-filter: blur(10px);
+        padding: 1rem 0;
+        z-index: 1000;
+        border-bottom: 1px solid #333;
+      }
+
+      .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, #ff5722, #ff7043);
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: #ff5722;
+      }
+
+      .mobile-menu {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+      }
+
+      .mobile-menu span {
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 3px 0;
+        transition: 0.3s;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #87ceeb 0%,
+          #98d8c8 50%,
+          #f7dc6f 100%
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        z-index: 2;
+        max-width: 1200px;
+        padding: 0 2rem;
+      }
+
+      .hero-logo {
+        font-size: 4rem;
+        font-weight: bold;
+        color: #8b4513;
+        margin-bottom: 1rem;
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        font-family: "Georgia", serif;
+      }
+
+      .hero-subtitle {
+        font-size: 2rem;
+        color: #228b22;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .app-badges {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .app-badge {
+        background: #000;
+        padding: 0.5rem 1rem;
+        border-radius: 8px;
+        color: white;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: transform 0.3s ease;
+      }
+
+      .app-badge:hover {
+        transform: translateY(-2px);
+      }
+
+      .learn-more-btn {
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .learn-more-btn:hover {
+        background: white;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      /* Welcome Section */
+      .welcome {
+        padding: 5rem 0;
+        background: #2a2a2a;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .welcome-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+
+      .welcome-logo {
+        text-align: center;
+      }
+
+      .welcome-logo .logo-large {
+        width: 200px;
+        height: 200px;
+        background: linear-gradient(135deg, #ff5722, #ff7043);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1rem;
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+      }
+
+      .welcome-text h2 {
+        color: #ff5722;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .welcome-text h3 {
+        color: white;
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .welcome-text p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .btn-primary {
+        background: #ff5722;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-primary:hover {
+        background: #e64a19;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+      }
+
+      /* Games Section */
+      .games {
+        padding: 5rem 0;
+        background: #1a1a1a;
+      }
+
+      .games h2 {
+        color: #ff5722;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .games h3 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .game-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        margin-bottom: 3rem;
+      }
+
+      .game-text p {
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .game-modes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .game-mode {
+        background: #2a2a2a;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        transition: transform 0.3s ease;
+      }
+
+      .game-mode:hover {
+        transform: translateY(-5px);
+      }
+
+      .game-mode h4 {
+        color: #ff5722;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+      }
+
+      .game-mode p {
+        margin-bottom: 1.5rem;
+      }
+
+      .phone-mockup {
+        width: 200px;
+        height: 400px;
+        background: #333;
+        border-radius: 25px;
+        margin: 0 auto;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .phone-screen {
+        width: 180px;
+        height: 360px;
+        background: linear-gradient(135deg, #8b4513, #a0522d);
+        border-radius: 20px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffd700;
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+
+      /* About Section */
+      .about {
+        padding: 5rem 0;
+        background: #2a2a2a;
+      }
+
+      .about h2 {
+        color: #ff5722;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .about h3 {
+        color: #ff5722;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+
+      .about-section {
+        background: #1a1a1a;
+        padding: 2rem;
+        border-radius: 10px;
+      }
+
+      .quote {
+        background: #333;
+        padding: 2rem;
+        border-left: 4px solid #ff5722;
+        margin: 2rem 0;
+        font-style: italic;
+      }
+
+      .quote p {
+        margin-bottom: 0.5rem;
+      }
+
+      /* Journey Section */
+      .journey {
+        padding: 5rem 0;
+        background: #1a1a1a;
+      }
+
+      .journey h2 {
+        color: #ff5722;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .journey-intro {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .journey-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .journey-option {
+        background: #2a2a2a;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+      }
+
+      .journey-option h3 {
+        color: #ff5722;
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #ff5722;
+        padding-bottom: 1rem;
+      }
+
+      .volunteer-coming-soon {
+        background: #333;
+        padding: 2rem;
+        border-radius: 10px;
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      .volunteer-coming-soon h4 {
+        color: #ff5722;
+        margin-bottom: 1rem;
+      }
+
+      /* Stay Updated Section */
+      .stay-updated {
+        padding: 5rem 0;
+        background: #2a2a2a;
+        text-align: center;
+      }
+
+      .stay-updated h2 {
+        color: #ff5722;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .stay-updated p {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        line-height: 1.8;
+      }
+
+      .newsletter-form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .form-input {
+        background: transparent;
+        border: 2px solid #666;
+        border-radius: 25px;
+        padding: 1rem 1.5rem;
+        color: white;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #ff5722;
+      }
+
+      .form-input::placeholder {
+        color: #999;
+      }
+
+      .subscribe-btn {
+        background: #ff5722;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: center;
+      }
+
+      .subscribe-btn:hover {
+        background: #e64a19;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+      }
+
+      /* Contact Section */
+      .contact {
+        padding: 5rem 0;
+        background: #1a1a1a;
+        text-align: center;
+      }
+
+      .contact h2 {
+        color: #ff5722;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-intro {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        line-height: 1.8;
+      }
+
+      .contact h3 {
+        color: #ff5722;
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        border-bottom: 2px solid #ff5722;
+        display: inline-block;
+        padding-bottom: 0.5rem;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin: 2rem 0;
+      }
+
+      .social-link {
+        width: 50px;
+        height: 50px;
+        background: #333;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        text-decoration: none;
+        font-size: 1.5rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-link:hover {
+        background: #ff5722;
+        transform: translateY(-2px);
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .form-textarea {
+        background: transparent;
+        border: 2px solid #666;
+        border-radius: 15px;
+        padding: 1rem 1.5rem;
+        color: white;
+        font-size: 1rem;
+        transition: border-color 0.3s ease;
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      .form-textarea:focus {
+        outline: none;
+        border-color: #ff5722;
+      }
+
+      .form-textarea::placeholder {
+        color: #999;
+      }
+
+      .submit-btn {
+        background: #ff5722;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 25px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        align-self: center;
+      }
+
+      .submit-btn:hover {
+        background: #e64a19;
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(255, 87, 34, 0.3);
+      }
+
+      /* Footer */
+      .footer {
+        background: #0d1117;
+        padding: 3rem 0 1rem;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-logo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer-logo-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #ff5722, #ff7043);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .footer-contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer-email {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+      }
+
+      .footer-social {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid #333;
+        padding-top: 1rem;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .footer-bottom a {
+        color: #ff5722;
+        text-decoration: none;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: flex;
+        }
+
+        .hero-logo {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.5rem;
+        }
+
+        .welcome-content,
+        .game-content {
+          grid-template-columns: 1fr;
+        }
+
+        .app-badges {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .newsletter-form {
+          padding: 0 1rem;
+        }
+
+        .nav {
+          padding: 0 1rem;
+        }
+
+        .container {
+          padding: 0 1rem;
+        }
+
+        .journey-options {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-logo {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .welcome-text h2 {
+          font-size: 2rem;
+        }
+
+        .game-modes {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="nav">
+        <div class="logo">
+          <div class="logo-icon">⛪</div>
+          <span>KINGDOM<br />GAMES</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#games">Games</a></li>
+          <li><a href="#about">About us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#journey">Get Involved</a></li>
+        </ul>
+        <div class="mobile-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+      <div class="hero-content">
+        <div class="hero-logo">BIBLE WORDLE</div>
+        <div class="hero-subtitle">COMING SOON!</div>
+        <div class="app-badges">
+          <a href="#" class="app-badge">📱 Download on the App Store</a>
+          <a href="#" class="app-badge">🤖 Get it on Google Play</a>
+        </div>
+        <a href="#welcome" class="learn-more-btn">LEARN MORE →</a>
+      </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section id="welcome" class="welcome">
+      <div class="container">
+        <div class="welcome-content">
+          <div class="welcome-logo">
+            <div class="logo-large">⛪</div>
+            <h2>KINGDOM<br />GAMES</h2>
+          </div>
+          <div class="welcome-text">
+            <h2>WELCOME TO KINGDOMGAMES</h2>
+            <h3>EMPOWERING THE KNOWLEDGE OF THE KINGDOM</h3>
+            <p>
+              At KingdomGames, we're creating immersive Christian games that
+              blend fun with faith. Our first game, Bible Wordle, is currently
+              in development and aims to enrich your spiritual journey through
+              meaningful, scripture-based gameplay.
+            </p>
+            <a href="#about" class="btn-primary">About us →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Games Section -->
+    <section id="games" class="games">
+      <div class="container">
+        <h2>OUR GAMES</h2>
+        <h3>BIBLE WORDLE</h3>
+        <div class="game-content">
+          <div class="game-text">
+            <p>
+              Our flagship game brings biblical wisdom and interactive word
+              puzzles together in a fresh, engaging format. Bible Wordle
+              features scripture-inspired puzzles designed to inspire spiritual
+              growth and deeper biblical understanding.
+            </p>
+            <a href="#" class="btn-primary">DISCOVER →</a>
+          </div>
+          <div class="phone-mockup">
+            <div class="phone-screen">BIBLE WORDLE<br />Coming Soon!</div>
+          </div>
+        </div>
+
+        <!-- Game Modes -->
+        <div class="game-modes">
+          <div class="game-mode">
+            <div class="phone-mockup">
+              <div class="phone-screen">WORD SCRAMBLE</div>
+            </div>
+            <h4>WORD SCRAMBLE</h4>
+            <p>
+              Unscramble biblical words, names, and phrases to unlock
+              fascinating insights with scripture, biblical stories, and the
+              stories from the game.
+            </p>
+          </div>
+
+          <div class="game-mode">
+            <div class="phone-mockup">
+              <div class="phone-screen">BIBLE TRIVIA</div>
+            </div>
+            <h4>BIBLE TRIVIA</h4>
+            <p>
+              Test your biblical knowledge with trivia questions covering
+              scripture, biblical history, characters, miracles, and more in
+              this fun, competitive puzzle.
+            </p>
+          </div>
+
+          <div class="game-mode">
+            <div class="phone-mockup">
+              <div class="phone-screen">WORD SEARCH</div>
+            </div>
+            <h4>WORD SEARCH</h4>
+            <p>
+              Relax and reflect while searching for words themed around
+              scripture, biblical stories, and characters. Please enjoy the
+              tranquil and peaceful game.
+            </p>
+          </div>
+
+          <div class="game-mode">
+            <div class="phone-mockup">
+              <div class="phone-screen">GUESS THE WORD</div>
+            </div>
+            <h4>GUESS THE WORD (WORDLE)</h4>
+            <p>
+              The classic "Guess" gameplay you love. Improve bible biblical
+              thinking. Guess the answer using a found, unlimited hints and tips
+              to progress to exciting new levels!
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem">
+          <h3 style="color: #ff5722">MORE GAME MODES COMING SOON!</h3>
+          <p>
+            We're continually developing fresh, innovative ways for you to
+            engage with scripture. Subscribe to stay updated!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2>About KingdomGames</h2>
+        <h3>Empowering the Knowledge of God</h3>
+
+        <div class="quote">
+          <p>
+            "For the earth will be filled with the knowledge of the glory of the
+            Lord, as the waters cover the sea." Habakkuk 2:14
+          </p>
+          <p>
+            "The kingdoms of this world have become the kingdoms of our Lord and
+            of His Christ, and He shall reign forever and ever!" Revelation
+            11:15
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-section">
+            <h3>Our Vision</h3>
+            <p>
+              We envision a world where everyone, through gaming, continuously
+              deepens their understanding and experience of God's
+              Kingdom—growing in His love, wisdom, and power. Every game we make
+              is designed to leave players knowing God more intimately.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h3>Who We Are</h3>
+            <p>
+              KingdomGames exists to reshape how people encounter, understand,
+              and embrace the Kingdom of God. We believe gaming is a powerful
+              and untapped medium for introducing millions to God's love,
+              wisdom, and power.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h3>Our Mission</h3>
+            <p>
+              "To bring the knowledge of God to all people by introducing,
+              reshaping, and redefining everything about God and His Kingdom
+              through gaming."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="journey" class="journey">
+      <div class="container">
+        <h2>Become Part of the Journey</h2>
+        <div class="journey-intro">
+          <p>
+            KingdomGames aims to reach hearts and transform lives through
+            faith-inspired gaming experiences. As we're currently in
+            development, your partnership, prayers, and support are incredibly
+            valuable.
+          </p>
+          <p>
+            Your support makes our mission Easier! Here's how you can be part of
+            KingdomGames' vision
+          </p>
+        </div>
+
+        <div class="journey-options">
+          <div class="journey-option">
+            <h3>Donate & Partner</h3>
+            <p>
+              Your financial partnership directly contributes to the development
+              and launch of Bible Wordle, helping us create powerful,
+              faith-filled gaming experiences.
+            </p>
+            <p>
+              Your generosity helps KingdomGames grow, innovate, and reach
+              hearts worldwide.
+            </p>
+            <a href="#" class="btn-primary">Donate →</a>
+            <p style="margin-top: 1rem">
+              To donate, please click the button above and follow the prompts to
+              make a <span style="color: #ff5722">monthly recurring</span> or
+              <span style="color: #ff5722">once-off</span> donation.
+            </p>
+          </div>
+
+          <div class="journey-option">
+            <h3>Volunteer Opportunities</h3>
+            <div class="volunteer-coming-soon">
+              <h4>(Coming Soon)</h4>
+              <p>
+                We deeply appreciate your willingness to volunteer! Currently,
+                we're fully focused on the development of our first project,
+                Bible Wordle.
+              </p>
+              <p>
+                Volunteering opportunities will open immediately after the
+                launch of Bible Wordle. Stay connected by subscribing to updates
+                or following us on social media to be notified when volunteering
+                begins.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stay Updated Section -->
+    <section id="stay-updated" class="stay-updated">
+      <div class="container">
+        <h2>Stay Updated</h2>
+        <p>
+          Be the first to know when Bible Wordle and future games launch.
+          Subscribe for development updates, special previews, and inspiring
+          content.
+        </p>
+        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+          <input
+            type="email"
+            class="form-input"
+            placeholder="Enter Your Email"
+            required
+          />
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Enter Your Name"
+            required
+          />
+          <button type="submit" class="subscribe-btn">subscribe now →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contact KingdomGames</h2>
+        <div class="contact-intro">
+          <p>
+            We'd love to hear from you! Whether you have questions, suggestions,
+            or you want to volunteer, partner, or support our mission—please
+            reach out.
+          </p>
+        </div>
+
+        <h3>Get in Touch</h3>
+        <div class="social-links">
+          <a href="#" class="social-link">📘</a>
+          <a href="#" class="social-link">📷</a>
+          <a href="#" class="social-link">💼</a>
+          <a href="#" class="social-link">📺</a>
+          <a href="#" class="social-link">✖️</a>
+        </div>
+
+        <form class="contact-form" onsubmit="handleContact(event)">
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            type="email"
+            class="form-input"
+            placeholder="Enter Your Email"
+            required
+          />
+          <input
+            type="text"
+            class="form-input"
+            placeholder="Subject"
+            required
+          />
+          <textarea
+            class="form-textarea"
+            placeholder="Type Your Message Here......"
+            required
+          ></textarea>
+          <button type="submit" class="submit-btn">Submit →</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">
+            <div class="footer-logo-icon">⛪</div>
+            <span>KINGDOM GAMES</span>
+          </div>
+          <div class="footer-contact">
+            <a href="mailto:KingdomGames@gmail.com" class="footer-email"
+              >📧 KingdomGames@gmail.com</a
+            >
+            <div class="footer-social">
+              <a href="#" class="social-link">📘</a>
+              <a href="#" class="social-link">📷</a>
+              <a href="#" class="social-link">💼</a>
+              <a href="#" class="social-link">📺</a>
+              <a href="#" class="social-link">✖️</a>
+            </div>
+            <a href="#contact" class="btn-primary">Contact →</a>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2024 KingdomGames. All rights reserved.</p>
+          <p><a href="#">Privacy Policy</a> & <a href="#">Cookies</a></p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenu = document.querySelector(".mobile-menu");
+      const navLinks = document.querySelector(".nav-links");
+
+      mobileMenu.addEventListener("click", () => {
+        navLinks.style.display =
+          navLinks.style.display === "flex" ? "none" : "flex";
+        navLinks.style.position = "absolute";
+        navLinks.style.top = "100%";
+        navLinks.style.left = "0";
+        navLinks.style.right = "0";
+        navLinks.style.backgroundColor = "rgba(26, 26, 26, 0.95)";
+        navLinks.style.flexDirection = "column";
+        navLinks.style.padding = "1rem";
+      });
+
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Active navigation link highlighting
+      window.addEventListener("scroll", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll(".nav-links a");
+
+        let current = "";
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop - 100;
+          if (scrollY >= sectionTop) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLinks.forEach((link) => {
+          link.classList.remove("active");
+          if (link.getAttribute("href") === `#${current}`) {
+            link.classList.add("active");
+          }
+        });
+      });
+
+      // Newsletter subscription handler
+      function handleNewsletter(event) {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.querySelector('input[type="email"]').value;
+        const name = form.querySelector('input[type="text"]').value;
+
+        // Here you would typically send the data to your backend
+        alert(`Thank you ${name}! You've been subscribed with email: ${email}`);
+        form.reset();
+      }
+
+      // Contact form handler
+      function handleContact(event) {
+        event.preventDefault();
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Here you would typically send the data to your backend
+        alert("Thank you for your message! We will get back to you soon.");
+        form.reset();
+      }
+
+      // Add loading animation to buttons
+      document.querySelectorAll("button, .btn-primary").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          if (this.type === "submit") {
+            const originalText = this.textContent;
+            this.textContent = "Sending...";
+            this.disabled = true;
+
+            setTimeout(() => {
+              this.textContent = originalText;
+              this.disabled = false;
+            }, 2000);
+          }
+        });
+      });
+
+      // Add intersection observer for animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe elements for animation
+      document
+        .querySelectorAll(".game-mode, .about-section, .journey-option")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(20px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+
+      // Add parallax effect to hero section
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector(".hero");
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        }
+      });
+
+      // Add typing effect to hero title
+      function typeWriter(element, text, speed = 100) {
+        let i = 0;
+        element.innerHTML = "";
+
+        function type() {
+          if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(type, speed);
+          }
+        }
+        type();
+      }
+
+      // Initialize typing effect on page load
+      window.addEventListener("load", () => {
+        const heroLogo = document.querySelector(".hero-logo");
+        if (heroLogo) {
+          typeWriter(heroLogo, "BIBLE WORDLE", 150);
+        }
+      });
+
+      // Add hover effects to game mode cards
+      document.querySelectorAll(".game-mode").forEach((card) => {
+        card.addEventListener("mouseenter", function () {
+          this.style.background = "linear-gradient(135deg, #333, #444)";
+        });
+
+        card.addEventListener("mouseleave", function () {
+          this.style.background = "#2a2a2a";
+        });
+      });
+
+      // Add click tracking for analytics (placeholder)
+      document.querySelectorAll("a, button").forEach((element) => {
+        element.addEventListener("click", function () {
+          const action =
+            this.textContent.trim() ||
+            this.getAttribute("aria-label") ||
+            "Unknown";
+          console.log(`User clicked: ${action}`);
+          // Here you would send data to your analytics service
+        });
+      });
+
+      // Add form validation enhancements
+      document
+        .querySelectorAll(".form-input, .form-textarea")
+        .forEach((input) => {
+          input.addEventListener("blur", function () {
+            if (this.value.trim() === "") {
+              this.style.borderColor = "#ff4444";
+            } else {
+              this.style.borderColor = "#FF5722";
+            }
+          });
+
+          input.addEventListener("focus", function () {
+            this.style.borderColor = "#FF5722";
+          });
+        });
+
+      // Add scroll-to-top functionality
+      const scrollToTopBtn = document.createElement("button");
+      scrollToTopBtn.innerHTML = "↑";
+      scrollToTopBtn.style.cssText = `
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #FF5722;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+        `;
+      document.body.appendChild(scrollToTopBtn);
+
+      scrollToTopBtn.addEventListener("click", () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) {
+          scrollToTopBtn.style.opacity = "1";
+        } else {
+          scrollToTopBtn.style.opacity = "0";
+        }
+      });
+    </script>
+  </body>
+</html>

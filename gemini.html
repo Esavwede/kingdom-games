@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kingdom Games</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #121212;
+        color: #ffffff;
+      }
+      .hero-bg {
+        background-image: linear-gradient(
+            rgba(18, 18, 18, 0.8),
+            rgba(18, 18, 18, 0.9)
+          ),
+          url("https://placehold.co/1920x1080/000000/FFFFFF?text=Game+Background");
+        background-size: cover;
+        background-position: center;
+      }
+      .btn-primary {
+        background-color: #ff4500;
+        color: #ffffff;
+        transition: background-color 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #e03e00;
+      }
+      .section-title {
+        color: #ff4500;
+      }
+      .card {
+        background-color: #1e1e1e;
+      }
+      .form-input {
+        background-color: #2a2a2a;
+        border-color: #444444;
+      }
+      .form-input:focus {
+        background-color: #333333;
+        border-color: #ff4500;
+        outline: none;
+        box-shadow: none;
+      }
+      .footer {
+        background-color: #1a1a1a;
+      }
+    </style>
+  </head>
+  <body class="antialiased">
+    <!-- Header -->
+    <header class="absolute top-0 left-0 right-0 z-10 p-4">
+      <div class="container mx-auto flex justify-between items-center">
+        <h1 class="text-3xl font-bold text-white">KINGDOM GAMES</h1>
+        <nav class="hidden md:flex space-x-6">
+          <a href="#home" class="text-white hover:text-orange-500 transition"
+            >Home</a
+          >
+          <a href="#games" class="text-white hover:text-orange-500 transition"
+            >Games</a
+          >
+          <a href="#about" class="text-white hover:text-orange-500 transition"
+            >About Us</a
+          >
+          <a href="#journey" class="text-white hover:text-orange-500 transition"
+            >Get Involved</a
+          >
+          <a href="#contact" class="text-white hover:text-orange-500 transition"
+            >Contact</a
+          >
+        </nav>
+        <button id="mobile-menu-button" class="md:hidden text-white">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16m-7 6h7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-900 bg-opacity-90">
+        <a href="#home" class="block py-2 px-4 text-white hover:bg-orange-500"
+          >Home</a
+        >
+        <a href="#games" class="block py-2 px-4 text-white hover:bg-orange-500"
+          >Games</a
+        >
+        <a href="#about" class="block py-2 px-4 text-white hover:bg-orange-500"
+          >About Us</a
+        >
+        <a
+          href="#journey"
+          class="block py-2 px-4 text-white hover:bg-orange-500"
+          >Get Involved</a
+        >
+        <a
+          href="#contact"
+          class="block py-2 px-4 text-white hover:bg-orange-500"
+          >Contact</a
+        >
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="home"
+      class="hero-bg min-h-screen flex items-center justify-center text-center p-4"
+    >
+      <div class="max-w-4xl">
+        <h2 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+          EMPOWERING THE KNOWLEDGE OF THE KINGDOM
+        </h2>
+        <p class="text-lg md:text-xl mb-8">
+          At KingdomGames, we're creating immersive Christian games that blend
+          fun with faith. Our first game, Bible Wordle, is currently in
+          development and aims to enrich your spiritual journey through
+          meaningful, scripture-based gameplay.
+        </p>
+        <a
+          href="#games"
+          class="btn-primary font-bold py-3 px-8 rounded-full text-lg"
+          >LEARN MORE</a
+        >
+      </div>
+    </section>
+
+    <!-- Our Games Section -->
+    <section id="games" class="py-20">
+      <div class="container mx-auto text-center px-4">
+        <h2 class="text-4xl font-bold mb-2 section-title">OUR GAMES</h2>
+        <p class="text-lg mb-12">
+          Our flagship game brings biblical wisdom and interactive word puzzles
+          together.
+        </p>
+        <div class="flex flex-wrap justify-center items-center gap-8">
+          <div class="card rounded-lg overflow-hidden shadow-lg max-w-sm">
+            <img
+              src="https://placehold.co/600x400/FF4500/FFFFFF?text=Bible+Wordle"
+              alt="Bible Wordle Game"
+              class="w-full"
+            />
+            <div class="p-6">
+              <h3 class="text-2xl font-bold mb-2">BIBLE WORDLE</h3>
+              <p class="text-gray-400 mb-4">
+                Challenge yourself with scripture-inspired puzzles designed to
+                inspire spiritual growth and deeper biblical understanding.
+              </p>
+              <div class="flex justify-center space-x-4">
+                <img
+                  src="https://placehold.co/150x50/000000/FFFFFF?text=App+Store"
+                  alt="App Store"
+                  class="h-12"
+                />
+                <img
+                  src="https://placehold.co/150x50/000000/FFFFFF?text=Google+Play"
+                  alt="Google Play"
+                  class="h-12"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="max-w-sm text-left">
+            <h3 class="text-3xl font-bold mb-4">COMING SOON!</h3>
+            <p class="text-lg">
+              Bible Wordle is under development. Follow us to get the latest
+              updates and be the first to know when it launches!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-20 bg-gray-900">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold section-title">ABOUT US</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+          <div class="card p-6 rounded-lg">
+            <h3 class="text-2xl font-bold mb-3">Who We Are</h3>
+            <p>
+              KingdomGames exists to reshape how people encounter, understand,
+              and embrace the Kingdom of God. We believe gaming is a powerful
+              medium for introducing millions to God's love.
+            </p>
+          </div>
+          <div class="card p-6 rounded-lg">
+            <h3 class="text-2xl font-bold mb-3">Our Vision</h3>
+            <p>
+              We envision a world where everyone, through gaming, deepens their
+              understanding and experience of God's Kingdom—growing in His love,
+              wisdom, and power. Every game is designed to leave players knowing
+              God more intimately.
+            </p>
+          </div>
+          <div class="card p-6 rounded-lg">
+            <h3 class="text-2xl font-bold mb-3">Our Mission</h3>
+            <p>
+              "To bring the knowledge of God to all people by introducing,
+              reshaping, and redefining everything about God and His Kingdom
+              through gaming."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Become Part of the Journey Section -->
+    <section id="journey" class="py-20">
+      <div class="container mx-auto text-center px-4">
+        <h2 class="text-4xl font-bold mb-4 section-title">
+          BECOME PART OF THE JOURNEY
+        </h2>
+        <p class="text-lg max-w-3xl mx-auto mb-10">
+          Your support makes our mission possible! As we're in development, your
+          partnership, prayers, and support are incredibly valuable. Here's how
+          you can be part of our vision.
+        </p>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div class="card p-8 rounded-lg text-left">
+            <h3 class="text-2xl font-bold mb-3">Volunteer</h3>
+            <p class="mb-4">
+              Join as a creative volunteer, beta tester, or share your unique
+              skills. Volunteering opportunities will open after the launch of
+              Bible Wordle. Stay connected for updates!
+            </p>
+            <button
+              class="btn-primary font-bold py-2 px-6 rounded-full"
+              disabled
+            >
+              Coming Soon
+            </button>
+          </div>
+          <div class="card p-8 rounded-lg text-left">
+            <h3 class="text-2xl font-bold mb-3">Support & Partner</h3>
+            <p class="mb-4">
+              Your financial partnership directly contributes to the development
+              and launch of Bible Wordle, helping us create powerful,
+              faith-filled gaming experiences.
+            </p>
+            <a href="#" class="btn-primary font-bold py-2 px-6 rounded-full"
+              >Donate</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stay Updated Section -->
+    <section id="update" class="py-20 bg-gray-900">
+      <div class="container mx-auto text-center px-4">
+        <h2 class="text-4xl font-bold mb-4 section-title">STAY UPDATED</h2>
+        <p class="text-lg max-w-2xl mx-auto mb-8">
+          Be the first to know when Bible Wordle and future games launch.
+          Subscribe for development updates, special previews, and inspiring
+          content.
+        </p>
+        <form class="max-w-xl mx-auto flex flex-col md:flex-row gap-4">
+          <input
+            type="text"
+            placeholder="Enter Your Name"
+            class="form-input w-full p-3 rounded-lg text-white placeholder-gray-400"
+          />
+          <input
+            type="email"
+            placeholder="Enter Your Email"
+            class="form-input w-full p-3 rounded-lg text-white placeholder-gray-400"
+          />
+          <button
+            type="submit"
+            class="btn-primary font-bold py-3 px-8 rounded-lg"
+          >
+            SUBSCRIBE
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section id="contact" class="py-20">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold section-title">GET IN TOUCH</h2>
+          <p class="text-lg max-w-2xl mx-auto">
+            We'd love to hear from you! Whether you have questions, suggestions,
+            or want to get involved, please reach out.
+          </p>
+        </div>
+        <form class="max-w-2xl mx-auto">
+          <div class="grid md:grid-cols-2 gap-4 mb-4">
+            <input
+              type="text"
+              placeholder="Full Name"
+              class="form-input w-full p-3 rounded-lg text-white placeholder-gray-400"
+            />
+            <input
+              type="email"
+              placeholder="Enter Your Email"
+              class="form-input w-full p-3 rounded-lg text-white placeholder-gray-400"
+            />
+          </div>
+          <div class="mb-4">
+            <input
+              type="text"
+              placeholder="Subject"
+              class="form-input w-full p-3 rounded-lg text-white placeholder-gray-400"
+            />
+          </div>
+          <div class="mb-4">
+            <textarea
+              placeholder="Type Your Message Here..."
+              rows="5"
+              class="form-input w-full p-3 rounded-lg text-white placeholder-gray-400"
+            ></textarea>
+          </div>
+          <div class="text-center">
+            <button
+              type="submit"
+              class="btn-primary font-bold py-3 px-12 rounded-lg"
+            >
+              SUBMIT
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer py-10">
+      <div class="container mx-auto text-center text-gray-400">
+        <div class="flex justify-center space-x-6 mb-6">
+          <a href="#" class="hover:text-white"
+            ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M22.46,6C21.69,6.35 20.86,6.58 20,6.69C20.88,6.16 21.56,5.32 21.88,4.31C21.05,4.81 20.13,5.16 19.16,5.36C18.37,4.5 17.26,4 16,4C13.65,4 11.73,5.92 11.73,8.29C11.73,8.63 11.77,8.96 11.84,9.27C8.28,9.09 5.11,7.38 3,4.79C2.63,5.42 2.42,6.16 2.42,6.94C2.42,8.43 3.17,9.75 4.33,10.5C3.62,10.5 2.96,10.3 2.38,10C2.38,10 2.38,10 2.38,10.03C2.38,12.11 3.86,13.85 5.82,14.24C5.46,14.34 5.08,14.39 4.69,14.39C4.42,14.39 4.15,14.36 3.89,14.31C4.43,16.02 6.02,17.26 7.89,17.29C6.43,18.45 4.58,19.13 2.56,19.13C2.22,19.13 1.88,19.11 1.54,19.07C3.44,20.29 5.7,21 8.12,21C16,21 20.33,14.46 20.33,8.79C20.33,8.6 20.33,8.42 20.32,8.23C21.16,7.63 21.88,6.87 22.46,6Z"
+              ></path></svg
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.11 3.9,21 5,21H19C20.11,21 21,20.11 21,19V5C21,3.89 20.1,3 19,3M17.5,17.5H15V13.5C15,12.4 14.6,11.5 13.5,11.5C12.4,11.5 12,12.4 12,13.5V17.5H9.5V9H12V10.5C12.5,9.67 13.5,9 14.5,9C16.5,9 17.5,10.5 17.5,12.5V17.5M6.5,17.5H9V9H6.5V17.5M7.75,8C7,8 6.5,7.5 6.5,6.75C6.5,6 7,5.5 7.75,5.5C8.5,5.5 9,6 9,6.75C9,7.5 8.5,8 7.75,8Z"
+              ></path></svg
+          ></a>
+          <a href="#" class="hover:text-white"
+            ><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.32 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C18.34 21.21 22 17.06 22 12.06C22 6.53 17.5 2.04 12 2.04Z"
+              /></svg
+          ></a>
+        </div>
+        <p class="mb-2">KingdomGames@gmail.com</p>
+        <p class="mb-4">&copy; 2024 KingdomGames. All rights reserved.</p>
+        <a href="#" class="text-sm hover:text-white"
+          >Privacy Policy & Cookies</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      mobileMenuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
+      // Close mobile menu when a link is clicked
+      const navLinks = document.querySelectorAll("#mobile-menu a");
+      navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+        });
+      });
+    </script>
+  </body>
+</html>

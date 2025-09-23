@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kingdom Games</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background-color: #1a1a1a;
+        color: #ffffff;
+        line-height: 1.6;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      /* Color Scheme */
+      :root {
+        --primary-orange: #ff6600;
+        --dark-bg: #1a1a1a;
+        --light-text: #ffffff;
+        --gray-text: #cccccc;
+        --border-color: #ff6600;
+      }
+
+      /* Navbar */
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background-color: var(--dark-bg);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        color: var(--primary-orange);
+      }
+
+      .logo img {
+        height: 40px; /* Placeholder for logo image */
+        margin-right: 0.5rem;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        color: var(--light-text);
+        font-weight: bold;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-orange);
+      }
+
+      /* Hero Section */
+      #hero {
+        background: url("path/to/hero-background.jpg") no-repeat center/cover; /* Placeholder for background image */
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      #hero h1 {
+        font-size: 4rem;
+        color: var(--primary-orange);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      #hero .buttons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+      }
+
+      #hero button {
+        background: transparent;
+        border: 2px solid var(--primary-orange);
+        color: var(--primary-orange);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: bold;
+      }
+
+      #hero button:hover {
+        background: var(--primary-orange);
+        color: var(--light-text);
+      }
+
+      #hero .app-stores {
+        margin-top: 1rem;
+        display: flex;
+        gap: 1rem;
+      }
+
+      #hero .app-stores img {
+        height: 40px; /* Placeholders for App Store and Play Store icons */
+      }
+
+      #hero .coming-soon {
+        font-size: 2rem;
+        color: var(--primary-orange);
+        margin-top: 1rem;
+      }
+
+      /* Welcome Section (Integrated into Hero or separate if needed) */
+      .welcome {
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      .welcome h2 {
+        font-size: 3rem;
+        color: var(--primary-orange);
+      }
+
+      .welcome p {
+        max-width: 800px;
+        margin: 1rem auto;
+        color: var(--gray-text);
+      }
+
+      /* Our Games Section */
+      #games {
+        padding: 4rem 2rem;
+      }
+
+      #games h2 {
+        font-size: 3rem;
+        color: var(--primary-orange);
+        text-align: center;
+        margin-bottom: 2rem;
+      }
+
+      .game-card {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 4rem;
+      }
+
+      .game-card img {
+        width: 200px; /* Placeholder for game screenshots */
+        border-radius: 10px;
+      }
+
+      .game-card h3 {
+        font-size: 2.5rem;
+        color: var(--primary-orange);
+      }
+
+      .game-card p {
+        color: var(--gray-text);
+      }
+
+      .game-card button {
+        background: var(--primary-orange);
+        border: none;
+        color: var(--light-text);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        margin-top: 1rem;
+      }
+
+      /* Game Modes */
+      .game-modes {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .mode {
+        text-align: center;
+      }
+
+      .mode img {
+        width: 150px;
+        transform: rotate(-10deg); /* Styling as per design */
+      }
+
+      .mode h4 {
+        font-size: 2rem;
+        color: var(--primary-orange);
+      }
+
+      .mode p {
+        color: var(--gray-text);
+      }
+
+      /* About Us Section */
+      #about {
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      #about h2 {
+        font-size: 3rem;
+        color: var(--primary-orange);
+        margin-bottom: 1rem;
+      }
+
+      #about .quote {
+        font-style: italic;
+        color: var(--gray-text);
+        max-width: 800px;
+        margin: 0 auto 2rem;
+      }
+
+      #about .subsection {
+        margin-bottom: 3rem;
+      }
+
+      #about h3 {
+        font-size: 2.5rem;
+        color: var(--primary-orange);
+      }
+
+      #about p {
+        max-width: 800px;
+        margin: 1rem auto;
+        color: var(--gray-text);
+      }
+
+      /* Become Part of the Journey Section */
+      #journey {
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      #journey h2 {
+        font-size: 3rem;
+        color: var(--primary-orange);
+        margin-bottom: 1rem;
+      }
+
+      #journey p {
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        color: var(--gray-text);
+      }
+
+      .options {
+        display: flex;
+        justify-content: center;
+        gap: 4rem;
+      }
+
+      .option {
+        max-width: 400px;
+      }
+
+      .option h4 {
+        font-size: 2rem;
+        color: var(--primary-orange);
+      }
+
+      .option p {
+        color: var(--gray-text);
+      }
+
+      .option button {
+        background: var(--primary-orange);
+        border: none;
+        color: var(--light-text);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        margin-top: 1rem;
+      }
+
+      /* Stay Updated Section */
+      #stay {
+        padding: 4rem 2rem;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      #stay h2 {
+        font-size: 3rem;
+        color: var(--primary-orange);
+        margin-bottom: 1rem;
+      }
+
+      #stay p {
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        color: var(--gray-text);
+      }
+
+      .subscribe-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .subscribe-form input {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--gray-text);
+        border-radius: 50px;
+        background: transparent;
+        color: var(--light-text);
+      }
+
+      .subscribe-form button {
+        background: var(--primary-orange);
+        border: none;
+        color: var(--light-text);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        width: 100%;
+      }
+
+      /* Get in Touch Section */
+      #contact {
+        padding: 4rem 2rem;
+        text-align: center;
+      }
+
+      #contact h2 {
+        font-size: 3rem;
+        color: var(--primary-orange);
+        margin-bottom: 1rem;
+      }
+
+      #contact p {
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        color: var(--gray-text);
+      }
+
+      .social-icons {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .social-icons a {
+        font-size: 1.5rem;
+        color: var(--light-text);
+        background: var(--dark-bg);
+        padding: 0.5rem;
+        border-radius: 50%;
+      }
+
+      .contact-form {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid var(--gray-text);
+        border-radius: 10px;
+        background: transparent;
+        color: var(--light-text);
+      }
+
+      .contact-form button {
+        background: var(--primary-orange);
+        border: none;
+        color: var(--light-text);
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        width: 100%;
+      }
+
+      /* Footer Section */
+      footer {
+        padding: 2rem;
+        text-align: center;
+        border-top: 1px solid var(--border-color);
+      }
+
+      footer .logo {
+        margin-bottom: 1rem;
+      }
+
+      footer .email {
+        color: var(--gray-text);
+        margin-bottom: 1rem;
+      }
+
+      footer .social-icons {
+        margin-bottom: 1rem;
+      }
+
+      footer button {
+        background: var(--primary-orange);
+        border: none;
+        color: var(--light-text);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        margin-bottom: 1rem;
+      }
+
+      footer p {
+        color: var(--gray-text);
+        font-size: 0.8rem;
+      }
+
+      /* Responsiveness */
+      @media (max-width: 768px) {
+        .navbar {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .nav-links {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        #hero h1 {
+          font-size: 2.5rem;
+        }
+
+        .game-card {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .options {
+          flex-direction: column;
+          gap: 2rem;
+        }
+
+        .social-icons {
+          flex-wrap: wrap;
+        }
+      }
+
+      @media (max-width: 480px) {
+        #hero {
+          height: 60vh;
+        }
+
+        #hero h1 {
+          font-size: 2rem;
+        }
+
+        .welcome h2 {
+          font-size: 2rem;
+        }
+
+        #games h2,
+        #about h2,
+        #journey h2,
+        #stay h2,
+        #contact h2 {
+          font-size: 2rem;
+        }
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">
+        <img src="path/to/logo.png" alt="Kingdom Games Logo" />
+        Kingdom Games
+      </div>
+      <div class="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#games">Games</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact</a>
+        <a href="#journey">Get Involved</a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <h1>Bible Wordle</h1>
+      <div class="buttons">
+        <button>Learn More</button>
+      </div>
+      <div class="app-stores">
+        <img src="path/to/app-store.png" alt="App Store" />
+        <img src="path/to/play-store.png" alt="Play Store" />
+      </div>
+      <div class="coming-soon">Coming Soon!</div>
+    </section>
+
+    <!-- Welcome (Integrated) -->
+    <div class="welcome">
+      <h2>Welcome to KingdomGames</h2>
+      <p>Empowering the Knowledge of the Kingdom</p>
+      <p>
+        At KingdomGames, we're creating immersive Christian games that blend fun
+        with faith. Our first game, Bible Wordle, is currently in development
+        and aims to enrich your spiritual journey through meaningful,
+        scripture-based gameplay.
+      </p>
+      <button>About Us</button>
+    </div>
+
+    <!-- Our Games Section -->
+    <section id="games">
+      <h2>Our Games</h2>
+      <div class="game-card">
+        <div>
+          <h3>Bible Wordle</h3>
+          <p>
+            Our flagship game brings Biblical wisdom and interactive word
+            puzzles together in a fresh, engaging format. Inspired puzzles
+            designed to inspire spiritual growth and deeper Biblical
+            understanding.
+          </p>
+          <button>Discover</button>
+        </div>
+        <img
+          src="path/to/phone-screenshot1.png"
+          alt="Bible Wordle Screenshot"
+        />
+        <img
+          src="path/to/phone-screenshot2.png"
+          alt="Bible Wordle Screenshot"
+        />
+      </div>
+
+      <!-- Game Modes -->
+      <h3>Game Modes</h3>
+      <div class="game-modes">
+        <div class="mode">
+          <img src="path/to/word-scramble.png" alt="Word Scramble" />
+          <h4>Word Scramble</h4>
+          <p>
+            Unscramble Biblical words, names, and phrases. Sharpen your mind
+            while familiarizing yourself with scripture, Biblical events, and
+            key figures from the Bible.
+          </p>
+        </div>
+        <div class="mode">
+          <img src="path/to/bible-trivia.png" alt="Bible Trivia" />
+          <h4>Bible Trivia</h4>
+          <p>
+            Test your Biblical knowledge with trivia questions covering
+            scripture, Biblical history, characters, and more. Perfect for
+            players who love to learn through fun, competitive quizzes.
+          </p>
+        </div>
+        <div class="mode">
+          <img src="path/to/word-search.png" alt="Word Search" />
+          <h4>Word Search</h4>
+          <p>
+            Relax and reflect while searching for hidden words directly inspired
+            by scripture. Biblical themes, ideal for quiet moments of meditation
+            and learning.
+          </p>
+        </div>
+        <div class="mode">
+          <img src="path/to/guess-the-word.png" alt="Guess the Word" />
+          <h4>Guess the Word (Wordle)</h4>
+          <p>
+            The classic Wordle gameplay you love infused with Biblical themes.
+            Guess hidden words based on scriptural hints and enhance your
+            Biblical vocabulary daily.
+          </p>
+        </div>
+      </div>
+      <p>More Game Modes Coming Soon!</p>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about">
+      <h2>About KingdomGames</h2>
+      <p class="quote">Empowering the Knowledge of God</p>
+      <p class="quote">
+        "For the earth will be filled with the knowledge of the glory of the
+        Lord, as the waters cover the sea." Habakkuk 2:14
+      </p>
+      <p class="quote">
+        "The kingdoms of this world have become the kingdoms of our Lord and of
+        His Christ, and He shall reign forever and ever!" Revelation 11:15
+      </p>
+
+      <div class="subsection">
+        <h3>Who We Are</h3>
+        <p>
+          KingdomGames exists to reshape how people encounter, understand, and
+          embrace the Kingdom of God. We believe gaming is a powerful and
+          untapped medium for introducing millions to God's love, wisdom, and
+          power.
+        </p>
+      </div>
+
+      <div class="subsection">
+        <h3>Our Vision</h3>
+        <p>
+          We envision a world where everyone, through gaming, continuously
+          deepens their understanding and experience of God's Kingdom—growing in
+          His love, wisdom, and power. Every game we make is designed to leave
+          players knowing God more intimately.
+        </p>
+      </div>
+
+      <div class="subsection">
+        <h3>Our Mission</h3>
+        <p>
+          To bring the knowledge of God to all people by introducing, reshaping,
+          and redefining everything about God and His Kingdom through gaming.
+        </p>
+      </div>
+    </section>
+
+    <!-- Become Part of the Journey Section -->
+    <section id="journey">
+      <h2>Become Part of the Journey</h2>
+      <p>
+        KingdomGames aims to reach hearts and transform lives through
+        faith-inspired gaming experiences. As we currently in development, your
+        partnership, prayers, and support are incredibly valuable.
+      </p>
+      <p>
+        If you're passionate about empowering faith through gaming, consider
+        joining us as a volunteer, partnering financially to help bring Bible
+        Wordle and future games to life.
+      </p>
+
+      <div class="options">
+        <div class="option">
+          <h4>Volunteer</h4>
+          <p>
+            Join as a creative volunteer, beta tester, or share your unique
+            skills to help KingdomGames thrive.
+          </p>
+          <button>Volunteer</button>
+        </div>
+        <div class="option">
+          <h4>Support</h4>
+          <p>
+            Financially support the development of high-quality, faith-based
+            gaming content to reach more people around the world.
+          </p>
+          <button>Support</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stay Updated Section -->
+    <section id="stay">
+      <h2>Stay Updated</h2>
+      <p>
+        Be the first to know when Bible Wordle and future games launch.
+        Subscribe for development updates, special previews, and inspiring
+        content.
+      </p>
+      <form class="subscribe-form">
+        <input type="email" placeholder="Enter Your Email" />
+        <input type="text" placeholder="Enter Your Name" />
+        <button type="submit">Subscribe Now →</button>
+      </form>
+    </section>
+
+    <!-- Get in Touch Section -->
+    <section id="contact">
+      <h2>Contact KingdomGames</h2>
+      <p>
+        We'd love to hear from you! Whether you have questions, suggestions, or
+        you want to volunteer, partner, or support our mission—please reach out.
+      </p>
+      <h3>Get in Touch</h3>
+      <div class="social-icons">
+        <a href="#">f</a>
+        <a href="#">○</a>
+        <a href="#">in</a>
+        <a href="#">▶</a>
+        <a href="#">▲</a>
+      </div>
+      <form class="contact-form">
+        <input type="text" placeholder="Full Name" />
+        <input type="email" placeholder="Enter Your Email" />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Type Your Message Here...."></textarea>
+        <button type="submit">Submit →</button>
+      </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+      <div class="logo">
+        <img src="path/to/footer-logo.png" alt="Kingdom Games Logo" />
+      </div>
+      <div class="email">✉ KingdomGames@gmail.com</div>
+      <div class="social-icons">
+        <a href="#">f</a>
+        <a href="#">○</a>
+        <a href="#">in</a>
+        <a href="#">▶</a>
+        <a href="#">▲</a>
+      </div>
+      <button>Contact →</button>
+      <p>© 2024 KingdomGames. All rights reserved. Privacy Policy & Cookies.</p>
+    </footer>
+  </body>
+</html>
