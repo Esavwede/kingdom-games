@@ -15,6 +15,7 @@
         background-color: #121212;
         color: #ffffff;
         scroll-behavior: smooth;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
       }
       .hero-bg {
         background-image: linear-gradient(
@@ -52,16 +53,42 @@
       .footer {
         background-color: #1a1a1a;
       }
-      .smooth-scroll {
-        scroll-behavior: smooth;
+
+      /* Mobile-specific fixes */
+      @media (max-width: 768px) {
+        .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        /* Fix for hero text touching edges */
+        .hero-text {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        /* Ensure images don't cause overflow */
+        img {
+          max-width: 100%;
+          height: auto;
+        }
       }
     </style>
   </head>
-  <body class="antialiased smooth-scroll">
+  <body class="antialiased">
     <!-- Header -->
-    <header class="absolute top-0 left-0 right-0 z-10 p-4">
+    <header class="absolute top-0 left-0 right-0 z-10 p-4 w-full">
       <div class="container mx-auto flex justify-between items-center">
-        <h1 class="text-3xl font-bold text-white">KINGDOM GAMES</h1>
+        <div class="flex items-center">
+          <img
+            src="https://placehold.co/40x40/FF4500/FFFFFF?text=KG"
+            alt="Kingdom Games Logo"
+            class="h-10 w-10 mr-2"
+          />
+          <h1 class="text-xl md:text-3xl font-bold text-white">
+            KINGDOM GAMES
+          </h1>
+        </div>
         <nav class="hidden md:flex space-x-6">
           <a
             href="#home"
@@ -150,11 +177,13 @@
       id="home"
       class="hero-bg min-h-screen flex items-center justify-center text-center p-4"
     >
-      <div class="max-w-4xl">
-        <h2 class="text-5xl md:text-7xl font-bold mb-4 leading-tight">
+      <div class="max-w-4xl hero-text">
+        <h2
+          class="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 leading-tight"
+        >
           EMPOWERING THE KNOWLEDGE OF THE KINGDOM
         </h2>
-        <p class="text-lg md:text-xl mb-8">
+        <p class="text-base md:text-lg lg:text-xl mb-8">
           At KingdomGames, we're creating immersive Christian games that blend
           fun with faith. Our first game, Bible Wordle, is currently in
           development and aims to enrich your spiritual journey through
@@ -162,7 +191,7 @@
         </p>
         <a
           href="#games"
-          class="btn-primary font-bold py-3 px-8 rounded-full text-lg nav-link"
+          class="btn-primary font-bold py-3 px-8 rounded-full text-lg nav-link inline-block"
           >LEARN MORE</a
         >
       </div>
@@ -171,13 +200,17 @@
     <!-- Our Games Section -->
     <section id="games" class="py-20">
       <div class="container mx-auto text-center px-4">
-        <h2 class="text-4xl font-bold mb-2 section-title">OUR GAMES</h2>
-        <p class="text-lg mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-2 section-title">
+          OUR GAMES
+        </h2>
+        <p class="text-base md:text-lg mb-12">
           Our flagship game brings biblical wisdom and interactive word puzzles
           together.
         </p>
         <div class="flex flex-wrap justify-center items-center gap-8">
-          <div class="card rounded-lg overflow-hidden shadow-lg max-w-sm">
+          <div
+            class="card rounded-lg overflow-hidden shadow-lg max-w-sm w-full"
+          >
             <img
               src="https://placehold.co/600x400/FF4500/FFFFFF?text=Bible+Wordle"
               alt="Bible Wordle Game"
@@ -207,9 +240,9 @@
               </div>
             </div>
           </div>
-          <div class="max-w-sm text-left">
-            <h3 class="text-3xl font-bold mb-4">COMING SOON!</h3>
-            <p class="text-lg">
+          <div class="max-w-sm text-left w-full">
+            <h3 class="text-2xl md:text-3xl font-bold mb-4">COMING SOON!</h3>
+            <p class="text-base md:text-lg">
               Bible Wordle is under development. Follow us to get the latest
               updates and be the first to know when it launches!
             </p>
@@ -222,7 +255,9 @@
     <section id="game-modes" class="py-20 bg-gray-900">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold section-title">GAME MODES</h2>
+          <h2 class="text-3xl md:text-4xl font-bold section-title">
+            GAME MODES
+          </h2>
         </div>
         <div class="space-y-16">
           <!-- Word Scramble -->
@@ -231,11 +266,11 @@
               <img
                 src="https://placehold.co/250x500/1E1E1E/FFFFFF?text=Game+Screenshot"
                 alt="Word Scramble"
-                class="rounded-lg shadow-xl"
+                class="rounded-lg shadow-xl max-w-full"
               />
             </div>
             <div class="md:w-2/3">
-              <h3 class="text-3xl font-bold mb-3 section-title">
+              <h3 class="text-2xl md:text-3xl font-bold mb-3 section-title">
                 WORD SCRAMBLE
               </h3>
               <p class="text-gray-400">
@@ -251,11 +286,11 @@
               <img
                 src="https://placehold.co/250x500/1E1E1E/FFFFFF?text=Game+Screenshot"
                 alt="Bible Trivia"
-                class="rounded-lg shadow-xl"
+                class="rounded-lg shadow-xl max-w-full"
               />
             </div>
             <div class="md:w-2/3 md:text-right">
-              <h3 class="text-3xl font-bold mb-3 section-title">
+              <h3 class="text-2xl md:text-3xl font-bold mb-3 section-title">
                 BIBLE TRIVIA
               </h3>
               <p class="text-gray-400">
@@ -271,11 +306,13 @@
               <img
                 src="https://placehold.co/250x500/1E1E1E/FFFFFF?text=Game+Screenshot"
                 alt="Word Search"
-                class="rounded-lg shadow-xl"
+                class="rounded-lg shadow-xl max-w-full"
               />
             </div>
             <div class="md:w-2/3">
-              <h3 class="text-3xl font-bold mb-3 section-title">WORD SEARCH</h3>
+              <h3 class="text-2xl md:text-3xl font-bold mb-3 section-title">
+                WORD SEARCH
+              </h3>
               <p class="text-gray-400">
                 Relax and reflect while searching for hidden words directly
                 inspired by scripture, biblical stories, and essential themes.
@@ -291,10 +328,10 @@
     <section id="about" class="py-20">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
-          <h2 class="text-5xl font-bold mb-4 section-title">
+          <h2 class="text-3xl md:text-5xl font-bold mb-4 section-title">
             About KingdomGames
           </h2>
-          <p class="text-xl text-white font-semibold">
+          <p class="text-lg md:text-xl text-white font-semibold">
             Empowering the Knowledge of God
           </p>
           <div class="max-w-4xl mx-auto mt-8 space-y-6 text-gray-400 italic">
@@ -317,8 +354,10 @@
           class="grid grid-cols-1 md:grid-cols-2 gap-x-24 gap-y-16 items-start"
         >
           <div class="text-left md:mt-12">
-            <h2 class="text-3xl font-bold mb-6 section-title">Our Vision</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 section-title">
+              Our Vision
+            </h2>
+            <p class="text-base md:text-lg text-gray-300 leading-relaxed">
               We envision a world where everyone, through gaming, continuously
               deepens their understanding and experience of God's
               Kingdom—growing in His love, wisdom, and power. Every game we make
@@ -327,8 +366,10 @@
           </div>
           <div class="flex flex-col gap-16">
             <div class="text-left">
-              <h2 class="text-3xl font-bold mb-6 section-title">Who We Are</h2>
-              <p class="text-lg text-gray-300 leading-relaxed">
+              <h2 class="text-2xl md:text-3xl font-bold mb-6 section-title">
+                Who We Are
+              </h2>
+              <p class="text-base md:text-lg text-gray-300 leading-relaxed">
                 KingdomGames exists to reshape how people encounter, understand,
                 and embrace the Kingdom of God. We believe gaming is a powerful
                 and untapped medium for introducing millions to God's love,
@@ -336,8 +377,10 @@
               </p>
             </div>
             <div class="text-left">
-              <h2 class="text-3xl font-bold mb-6 section-title">Our Mission</h2>
-              <p class="text-lg text-gray-300 leading-relaxed">
+              <h2 class="text-2xl md:text-3xl font-bold mb-6 section-title">
+                Our Mission
+              </h2>
+              <p class="text-base md:text-lg text-gray-300 leading-relaxed">
                 "To bring the knowledge of God to all people by introducing,
                 reshaping, and redefining everything about God and His Kingdom
                 through gaming."
@@ -351,17 +394,17 @@
     <!-- Become Part of the Journey Section -->
     <section id="journey" class="py-20 bg-gray-900">
       <div class="container mx-auto text-center px-4">
-        <h2 class="text-4xl font-bold mb-4 section-title">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">
           BECOME PART OF THE JOURNEY
         </h2>
-        <p class="text-lg max-w-3xl mx-auto mb-10">
+        <p class="text-base md:text-lg max-w-3xl mx-auto mb-10">
           Your support makes our mission possible! As we're in development, your
           partnership, prayers, and support are incredibly valuable. Here's how
           you can be part of our vision.
         </p>
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          <div class="card p-8 rounded-lg text-left">
-            <h3 class="text-2xl font-bold mb-3">Volunteer</h3>
+          <div class="card p-6 md:p-8 rounded-lg text-left">
+            <h3 class="text-xl md:text-2xl font-bold mb-3">Volunteer</h3>
             <p class="mb-4">
               Join as a creative volunteer, beta tester, or share your unique
               skills. Volunteering opportunities will open after the launch of
@@ -374,8 +417,10 @@
               Coming Soon
             </button>
           </div>
-          <div class="card p-8 rounded-lg text-left">
-            <h3 class="text-2xl font-bold mb-3">Support & Partner</h3>
+          <div class="card p-6 md:p-8 rounded-lg text-left">
+            <h3 class="text-xl md:text-2xl font-bold mb-3">
+              Support & Partner
+            </h3>
             <p class="mb-4">
               Your financial partnership directly contributes to the development
               and launch of Bible Wordle, helping us create powerful,
@@ -394,8 +439,10 @@
     <!-- Stay Updated Section -->
     <section id="update" class="py-20">
       <div class="container mx-auto text-center px-4">
-        <h2 class="text-4xl font-bold mb-4 section-title">STAY UPDATED</h2>
-        <p class="text-lg max-w-2xl mx-auto mb-8">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">
+          STAY UPDATED
+        </h2>
+        <p class="text-base md:text-lg max-w-2xl mx-auto mb-8">
           Be the first to know when Bible Wordle and future games launch.
           Subscribe for development updates, special previews, and inspiring
           content.
@@ -427,8 +474,10 @@
     <section id="contact" class="py-20 bg-gray-900">
       <div class="container mx-auto px-4">
         <div class="text-center mb-12">
-          <h2 class="text-4xl font-bold section-title">GET IN TOUCH</h2>
-          <p class="text-lg max-w-2xl mx-auto">
+          <h2 class="text-3xl md:text-4xl font-bold section-title">
+            GET IN TOUCH
+          </h2>
+          <p class="text-base md:text-lg max-w-2xl mx-auto">
             We'd love to hear from you! Whether you have questions, suggestions,
             or want to get involved, please reach out.
           </p>
