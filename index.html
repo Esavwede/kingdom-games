@@ -18,11 +18,7 @@
         overflow-x: hidden; /* Prevent horizontal scrolling */
       }
       .hero-bg {
-        background-image: linear-gradient(
-            rgba(18, 18, 18, 0.8),
-            rgba(18, 18, 18, 0.9)
-          ),
-          url("https://placehold.co/1920x1080/000000/FFFFFF?text=Game+Background");
+        background-image: url("./img/hero-section-image.png");
         background-size: cover;
         background-position: center;
       }
@@ -50,6 +46,38 @@
         outline: none;
         box-shadow: none;
       }
+      .about-bg {
+        background-image: url("./img/kg-logo.png");
+        background-size: cover;
+        background-repeat: repeat;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+      }
+
+      .become-part-of-the-journey {
+        background: url("./img/kg-logo.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed;
+        position: relative;
+      }
+
+      .about-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(18, 18, 18, 0.9);
+        z-index: 1;
+      }
+      .about-bg > * {
+        position: relative;
+        z-index: 2;
+      }
       .footer {
         background-color: #1a1a1a;
       }
@@ -72,6 +100,29 @@
           max-width: 100%;
           height: auto;
         }
+      }
+
+      /* scramble container */
+
+      .scramble-container {
+        background-image: url("./img/side-image-3.png");
+        background-size: cover;
+        background-position: bottom-right;
+        padding: 1rem;
+        border-radius: 0.5rem;
+      }
+
+      .scramble-container-left {
+        background-image: url("./img/side-image-3.png");
+        background-size: cover;
+        background-position: bottom-left;
+        padding: 1rem;
+        border-radius: 0.5rem;
+      }
+
+      /* About section */
+      .about {
+        background: url("./img//kg-logo.png");
       }
     </style>
   </head>
@@ -178,10 +229,11 @@
       <div class="max-w-4xl hero-text">
         <h2
           class="text-3xl md:text-5xl lg:text-7xl font-bold mb-4 leading-tight"
+          style="display: none"
         >
           EMPOWERING THE KNOWLEDGE OF THE KINGDOM
         </h2>
-        <p class="text-base md:text-lg lg:text-xl mb-8">
+        <p class="text-base md:text-lg lg:text-xl mb-8" style="display: none">
           At KingdomGames, we're creating immersive Christian games that blend
           fun with faith. Our first game, Bible Wordle, is currently in
           development and aims to enrich your spiritual journey through
@@ -190,6 +242,7 @@
         <a
           href="#games"
           class="btn-primary font-bold py-3 px-8 rounded-full text-lg nav-link inline-block"
+          style="display: none"
           >LEARN MORE</a
         >
       </div>
@@ -210,31 +263,67 @@
             class="card rounded-lg overflow-hidden shadow-lg max-w-sm w-full"
           >
             <img
-              src="https://placehold.co/600x400/FF4500/FFFFFF?text=Bible+Wordle"
+              src="./img/scramble-rush.png"
               alt="Bible Wordle Game"
               class="w-full"
             />
             <div class="p-6">
-              <h3 class="text-2xl font-bold mb-2">BIBLE WORDLE</h3>
+              <h3 class="text-2xl font-bold mb-2">Scramble Rush</h3>
               <p class="text-gray-400 mb-4">
                 Challenge yourself with scripture-inspired puzzles designed to
                 inspire spiritual growth and deeper biblical understanding.
               </p>
               <div class="flex justify-center space-x-4">
-                <a href="#" class="inline-block">
-                  <img
-                    src="https://placehold.co/150x50/000000/FFFFFF?text=App+Store"
-                    alt="App Store"
-                    class="h-12 hover:opacity-80 transition-opacity"
-                  />
-                </a>
-                <a href="#" class="inline-block">
-                  <img
-                    src="https://placehold.co/150x50/000000/FFFFFF?text=Google+Play"
-                    alt="Google Play"
-                    class="h-12 hover:opacity-80 transition-opacity"
-                  />
-                </a>
+                <button
+                  type="button"
+                  class="flex items-center justify-center w-48 text-white bg-black rounded-lg h-14"
+                >
+                  <div class="mr-3">
+                    <svg viewBox="0 0 384 512" width="30">
+                      <path
+                        fill="currentColor"
+                        d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-xs">Download on the</div>
+                    <div class="-mt-1 font-sans text-xl font-semibold">
+                      App Store
+                    </div>
+                  </div>
+                </button>
+                <button
+                  type="button"
+                  class="flex items-center justify-center w-48 text-white bg-black rounded-lg h-14"
+                >
+                  <div class="mr-3">
+                    <svg viewBox="30 336.7 120.9 129.2" width="30">
+                      <path
+                        fill="#FFD400"
+                        d="M119.2,421.2c15.3-8.4,27-14.8,28-15.3c3.2-1.7,6.5-6.2,0-9.7  c-2.1-1.1-13.4-7.3-28-15.3l-20.1,20.2L119.2,421.2z"
+                      ></path>
+                      <path
+                        fill="#FF3333"
+                        d="M99.1,401.1l-64.2,64.7c1.5,0.2,3.2-0.2,5.2-1.3  c4.2-2.3,48.8-26.7,79.1-43.3L99.1,401.1L99.1,401.1z"
+                      ></path>
+                      <path
+                        fill="#48FF48"
+                        d="M99.1,401.1l20.1-20.2c0,0-74.6-40.7-79.1-43.1  c-1.7-1-3.6-1.3-5.3-1L99.1,401.1z"
+                      ></path>
+                      <path
+                        fill="#3BCCFF"
+                        d="M99.1,401.1l-64.3-64.3c-2.6,0.6-4.8,2.9-4.8,7.6  c0,7.5,0,107.5,0,113.8c0,4.3,1.7,7.4,4.9,7.7L99.1,401.1z"
+                      ></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="text-xs">GET IT ON</div>
+                    <div class="-mt-1 font-sans text-xl font-semibold">
+                      Google Play
+                    </div>
+                  </div>
+                </button>
               </div>
             </div>
           </div>
@@ -259,10 +348,12 @@
         </div>
         <div class="space-y-16">
           <!-- Word Scramble -->
-          <div class="flex flex-col md:flex-row items-center gap-8">
+          <div
+            class="flex flex-col md:flex-row items-center gap-8 scramble-container"
+          >
             <div class="md:w-1/3 flex justify-center">
               <img
-                src="https://placehold.co/250x500/1E1E1E/FFFFFF?text=Game+Screenshot"
+                src="./img/word-scramble.png"
                 alt="Word Scramble"
                 class="rounded-lg shadow-xl max-w-full"
               />
@@ -279,10 +370,12 @@
             </div>
           </div>
           <!-- Bible Trivia -->
-          <div class="flex flex-col md:flex-row-reverse items-center gap-8">
+          <div
+            class="flex flex-col md:flex-row-reverse items-center gap-8 scramble-container-left"
+          >
             <div class="md:w-1/3 flex justify-center">
               <img
-                src="https://placehold.co/250x500/1E1E1E/FFFFFF?text=Game+Screenshot"
+                src="./img/bible-trivia.png"
                 alt="Bible Trivia"
                 class="rounded-lg shadow-xl max-w-full"
               />
@@ -298,11 +391,14 @@
               </p>
             </div>
           </div>
+
           <!-- Word Search -->
-          <div class="flex flex-col md:flex-row items-center gap-8">
+          <div
+            class="flex flex-col md:flex-row items-center gap-8 scramble-container"
+          >
             <div class="md:w-1/3 flex justify-center">
               <img
-                src="https://placehold.co/250x500/1E1E1E/FFFFFF?text=Game+Screenshot"
+                src="./img/word-search.png"
                 alt="Word Search"
                 class="rounded-lg shadow-xl max-w-full"
               />
@@ -323,7 +419,7 @@
     </section>
 
     <!-- About Us Section -->
-    <section id="about" class="py-20">
+    <section id="about" class="py-20 about-bg">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-3xl md:text-5xl font-bold mb-4 section-title">
@@ -390,7 +486,7 @@
     </section>
 
     <!-- Become Part of the Journey Section -->
-    <section id="journey" class="py-20 bg-gray-900">
+    <section id="journey" class="py-20 bg-gray-900 become-part-of-the-journey">
       <div class="container mx-auto text-center px-4">
         <h2 class="text-3xl md:text-4xl font-bold mb-4 section-title">
           BECOME PART OF THE JOURNEY

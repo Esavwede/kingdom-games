@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Food Menu Concept</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500;700&family=Poppins:wght@400;600&display=swap");
+
+      :root {
+        --background-color: #f4f4f4;
+        --card-color: #ffffff;
+        --text-color: #333333;
+        --accent-color: #f0f0f0;
+        --primary-font: "Poppins", sans-serif;
+        --heading-font: "Teko", sans-serif;
+      }
+
+      body {
+        font-family: var(--primary-font);
+        background-color: var(--background-color);
+        color: var(--text-color);
+        margin: 0;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      /* --- Header --- */
+      .main-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 2rem;
+      }
+
+      .logo {
+        font-family: var(--heading-font);
+        font-size: 2rem;
+        letter-spacing: 2px;
+      }
+
+      .menu-icon svg {
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+      }
+
+      /* --- Main Showcase --- */
+      .food-showcase {
+        display: flex;
+        align-items: center;
+        background-color: var(--card-color);
+        border-radius: 20px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .image-panel {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .food-image-wrapper {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background-color: var(--accent-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .food-image-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .food-image-wrapper:hover img {
+        transform: scale(1.1);
+      }
+
+      .details-panel {
+        flex: 1;
+        padding-left: 4rem;
+      }
+
+      .dish-title {
+        font-family: var(--heading-font);
+        font-size: 6rem;
+        line-height: 1;
+        margin: 0;
+        letter-spacing: 1px;
+      }
+
+      .dish-subtitle {
+        font-family: var(--heading-font);
+        font-size: 4rem;
+        line-height: 1;
+        margin: 0;
+      }
+
+      .rating-card {
+        background-color: var(--accent-color);
+        border-radius: 10px;
+        padding: 0.75rem 1.5rem;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1rem;
+      }
+
+      .rating-card .score {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+
+      .rating-card .chef {
+        font-size: 0.9rem;
+        margin-top: -5px;
+      }
+
+      .action-buttons {
+        margin-top: 2rem;
+        display: flex;
+        gap: 1rem;
+      }
+
+      .btn {
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .btn-primary {
+        background-color: var(--text-color);
+        color: var(--card-color);
+      }
+
+      .btn-primary:hover {
+        opacity: 0.8;
+      }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: var(--text-color);
+        border: 2px solid var(--accent-color);
+      }
+
+      .btn-secondary:hover {
+        background-color: var(--accent-color);
+      }
+
+      /* --- Food Selector Bar --- */
+      .food-selector {
+        margin-top: 2rem;
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
+
+      .food-item {
+        width: 80px;
+        height: 80px;
+        border-radius: 15px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 3px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .food-item.active,
+      .food-item:hover {
+        border-color: var(--text-color);
+      }
+
+      .food-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .food-showcase {
+          flex-direction: column;
+          text-align: center;
+        }
+        .details-panel {
+          padding-left: 0;
+          margin-top: 2rem;
+        }
+        .dish-title {
+          font-size: 4rem;
+        }
+        .dish-subtitle {
+          font-size: 3rem;
+        }
+        .action-buttons {
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="main-header">
+        <div class="logo">FOODZ</div>
+        <div class="menu-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+            />
+          </svg>
+        </div>
+      </header>
+
+      <main class="food-showcase">
+        <div class="image-panel">
+          <div class="food-image-wrapper">
+            <img
+              src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981&auto=format&fit=crop"
+              alt="Lotek Perkedel"
+            />
+          </div>
+        </div>
+
+        <div class="details-panel">
+          <h1 class="dish-title">LOTEK</h1>
+          <h2 class="dish-subtitle">PERKEDEL</h2>
+
+          <div class="rating-card">
+            <span class="score">4.9</span>
+            <span class="chef">Chef Feny</span>
+          </div>
+
+          <div class="action-buttons">
+            <a href="#" class="btn btn-secondary">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="currentColor"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"
+                />
+              </svg>
+              Play Video
+            </a>
+            <a href="#" class="btn btn-primary">Order Food</a>
+          </div>
+        </div>
+      </main>
+
+      <nav class="food-selector">
+        <div class="food-item active">
+          <img
+            src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1981&auto=format&fit=crop"
+            alt="Dish 1"
+          />
+        </div>
+        <div class="food-item">
+          <img
+            src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1887&auto=format&fit=crop"
+            alt="Dish 2"
+          />
+        </div>
+        <div class="food-item">
+          <img
+            src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=1887&auto=format&fit=crop"
+            alt="Dish 3"
+          />
+        </div>
+        <div class="food-item">
+          <img
+            src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?q=80&w=1980&auto=format&fit=crop"
+            alt="Dish 4"
+          />
+        </div>
+      </nav>
+    </div>
+  </body>
+</html>
